@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gaming Redeem Code Generator</title>
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff4b2b;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        .form-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 75, 43, 0.8);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input, select, button {
+            padding: 15px;
+            margin: 12px 0;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        input, select {
+            background-color: #333;
+            color: #fff;
+        }
+
+        button {
+            background-color: #ff4b2b;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1c00;
+        }
+
+        #redeemCode {
+            margin-top: 20px;
+            font-size: 28px;
+            color: #00ff00;
+            font-weight: bold;
+            word-break: break-all;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 16px;
+            color: #eee;
+            text-align: center;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo">G®©</div>
+
+    <h1>Gaming Redeem Code Generator</h1>
+
+    <div class="form-container">
+        <form id="gameForm">
+            <input type="text" id="gameName" placeholder="Enter Game Name" required><br>
+            <input type="text" id="gameUID" placeholder="Enter Game UID" required><br>
+            
+            <!-- Country Dropdown -->
+            <select id="country" required>
+                <option value="">Select Country</option>
+                <option value="India">India</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Nepal">Nepal</option>
+                <option value="USA">USA</option>
+                <option value="Other">Other</option>
+            </select><br>
+            
+            <!-- State Dropdown -->
+            <select id="state" required>
+                <option value="">Select State</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Assam">Assam</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Dhaka">Dhaka</option>
+                <option value="Kathmandu">Kathmandu</option>
+                <option value="California">California</option>
+                <option value="Other">Other</option>
+            </select><br>
+            
+            <button type="submit">Generate Redeem Code</button>
+        </form>
+
+        <div id="redeemCode"></div>
+    </div>
+
+    <div class="footer">
+        Created by Samarjit Roy © 2025
+    </div>
+
+    <script>
+        document.getElementById('gameForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Generate random redeem code
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 12; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            
+            document.getElementById('redeemCode').innerText = "🎮 Your Redeem Code: " + code;
+        });
+    </script>
+
+</body>
+</html>
